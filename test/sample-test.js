@@ -123,7 +123,7 @@ describe("EscrowContract_complete", function () {
   });
 });
 
-describe("EscrowContract_complete", function () {
+describe("EscrowContract_dispute", function () {
   it("Should create an escrow smart contract , make payment to escrow, a dispute is launched by buyer or seller", async function () {
     const Escrow = await ethers.getContractFactory("EscrowContract");
     const escrow = await Escrow.deploy(
