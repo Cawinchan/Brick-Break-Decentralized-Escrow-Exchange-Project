@@ -9,7 +9,7 @@ contract EscrowContract{
     address payable public buyer;
     address payable public seller;
     uint256 public value;
-	mapping(address => uint) TotalAmount;
+	// mapping(address => uint) TotalAmount;
 
     // Future work 
     // struct Contract{
@@ -106,6 +106,9 @@ contract EscrowContract{
 
     function launchDispute() instate(
       State.await_delivery ) public {
+
+    //    POS get validators 
+    //    n-of-m wallet
        state = State.dispute_raised;
     }
 

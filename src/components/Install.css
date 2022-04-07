@@ -8,9 +8,7 @@
   }
   
   @media (prefers-reduced-motion: no-preference) {
-    .Install-logo {
-      animation: App-logo-spin 20s linear;
-    }
+
   }
   
   .Install-header {

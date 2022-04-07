@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from './logo.svg'
+import logo from './escrow.png'
 import './App.css'
 import WalletBalance from './components/WalletBalance'
 import Install from './components/Install';
