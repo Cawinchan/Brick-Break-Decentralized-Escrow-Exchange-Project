@@ -3,7 +3,21 @@ import logo from './escrow.png'
 import './App.css'
 import WalletBalance from './components/WalletBalance'
 import Install from './components/Install';
+import { Routes, Route, Link } from 'react-router-dom';
 
+// Pages
+import Home from "./pages/Home";
+import Start from "./pages/Start";
+import Create from "./pages/Create";
+import Join from "./pages/Join";
+import RoleSel from "./pages/RoleSel";
+import Terms from "./pages/Terms";
+import Request from "./pages/Request";
+import Check from "./pages/Check";
+import Notice from "./pages/Notice";
+import Arbitration from "./pages/Arbitration";
+import Judging from "./pages/Judging";
+import Result from "./pages/Result";
 
 function App() {
   if (!window.ethereum) {
@@ -15,16 +29,27 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p> Welcome to the Decentralised Escrow Exchange Project (DEEP)!</p>
-          <p>
-            <WalletBalance />
-          </p>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Start" element={<Start />} />
+            <Route path="/Create" element={<Create />} />
+            <Route path="/Join" element={<Join />} />
+            <Route path="/RoleSel" element={<RoleSel />} />
+            <Route path="/Terms" element={<Terms />} />
+            <Route path="/Request" element={<Request />} />
+            <Route path="/Check" element={<Check />} />
+            <Route path="/Notice" element={<Notice />} />
+            <Route path="/Arbitration" element={<Arbitration />} />
+            <Route path="/Judging" element={<Judging />} />
+            <Route path="/Result" element={<Result />} />
+          </Routes>
         
         </header>
       </div>
     )
   }
 }
+
 
 export default App
