@@ -34,12 +34,13 @@ contract EscrowContract{
     enum State{
          
         // Following are the data members
-        // 0: await_payment - Waiting for Buyer to send funds to escrow account
-        // 1: await_delivery - Buyer has sent funds, waiting for Seller to send item
-        // 2: complete - Buyer has received item, funds sent to seller
-        // 3: dispute_raised - after payment, either buyer or seller can raise this
-        // 4: cancelled - Buyer decides to not send funds or seller decides to return funds to Buyer
-        await_payment, await_delivery, complete, dispute_raised, cancelled
+        // 0: await_confirmation - Waiting for seller to agree to the clauses of the contract
+        // 1: await_payment - Waiting for Buyer to send funds to escrow account
+        // 2: await_delivery - Buyer has sent funds, waiting for Seller to send item
+        // 3: complete - Buyer has received item, funds sent to seller
+        // 4: dispute_raised - after payment, either buyer or seller can raise this
+        // 5: cancelled - Buyer decides to not send funds or seller decides to return funds to Buyer
+        await_confirmation, await_payment, await_delivery, complete, dispute_raised, cancelled
     }
   
     // Declaring the object of the enumerator
@@ -87,9 +88,15 @@ contract EscrowContract{
         buyer = _buyer;
         seller = _sender;
         value = _value;
-        state = State.await_payment;
+        state = State.await_confirmation;
         time_created = block.timestamp;
 
+    }
+
+    // Defining function to agree on the smart contract clauses
+    function approveContract() onlySeller instate(
+    State.await_confirmation) public{
+        state = State.await_payment;
     }
     
     // Defining function to confirm payment (Change to onlySeller to prevent cheating)
@@ -100,8 +107,6 @@ contract EscrowContract{
         // emit event Pay(block.timestamp);
         payable(address(this)).transfer(msg.value);
         state = State.await_delivery;
-        
-
     }
 
     // Defining function to cancel payment
@@ -236,7 +241,6 @@ contract MultiSigWallet {
     /// @dev Allows an arbitrator to approve the dispute within a day
     function ApproveDispute()
         public
-        
         arbitratorExists(msg.sender)
         neverApproved(msg.sender)
         withinADay()
@@ -250,6 +254,8 @@ contract MultiSigWallet {
             emit Execution(block.timestamp);
         }
     }
+
+    // Need to handle case where Dispute falls, transfers back to escrow contract? or seller? 
 
     function getConfirmationCount() view public returns (uint){
         return ApprovalCount;
