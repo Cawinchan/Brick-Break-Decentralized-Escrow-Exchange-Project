@@ -33,7 +33,7 @@ contract EscrowContract{
     // Defining a enumerator 'State'
     enum State{
          
-        // Following are the data members
+        // Following are the States
         // 0: await_confirmation - Waiting for seller to agree to the clauses of the contract
         // 1: await_payment - Waiting for Buyer to send funds to escrow account
         // 2: await_delivery - Buyer has sent funds, waiting for Seller to send item
@@ -95,7 +95,7 @@ contract EscrowContract{
 
     // Defining function to agree on the smart contract clauses
     function approveContract() onlySeller instate(
-    State.await_confirmation) public{
+    State.await_confirmation) public {
         state = State.await_payment;
     }
     
