@@ -24,7 +24,7 @@ function Terms() {
     <h3>Press the add clause button after writing the clause to be added.</h3>
     <input></input>
     <button className="BlueButton">Add Clause</button>
-    <button className="BlueButton">Confirm Contractx</button>
+    <button className="BlueButton">Confirm Contract</button>
     </>
   )
 }

@@ -61,7 +61,7 @@ describe("EscrowContract_Payment", function () {
     // const web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/26907a93a74c4d028569de987e5dd064"))
 
     const past_escrow_balance = await ethers.provider.getBalance(escrow.address);
-    console.log("past escrow balance:",past_escrow_balance);
+    // console.log("past escrow balance:",past_escrow_balance);
 
     // wait till payment is made
     await escrow.connect(buyer).makePayment({value: '2000000000000000000'});
@@ -72,7 +72,7 @@ describe("EscrowContract_Payment", function () {
     // const escrow_balance = await web3.eth.getBalance(buyer).then();
     const escrow_balance = await ethers.provider.getBalance(escrow.address);
 
-    console.log("escrow balance after payment:",escrow_balance)
+    // console.log("escrow balance after payment:",escrow_balance)
 
     expect(escrow_balance).to.equal(BigNumber.from('2000000000000000000'));
   });
@@ -100,7 +100,7 @@ describe("EscrowContract_Payment_wrong_amount", function () {
     // const web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/26907a93a74c4d028569de987e5dd064"))
 
     const past_escrow_balance = await ethers.provider.getBalance(escrow.address);
-    console.log("past escrow balance:",past_escrow_balance);
+    // console.log("past escrow balance:",past_escrow_balance);
 
     // wait till payment is made
     const error = escrow.connect(buyer).makePayment({value: '200000000000000'});
@@ -171,7 +171,7 @@ describe("EscrowContract_Refund", function () {
   });
 });
 
-describe("EscrowContract_complete", function () {
+describe("EscrowContract_Complete", function () {
   it("Should create an escrow smart contract , make payment to escrow, confirm delivery and transfer funds to seller", async function () {
     const [buyer,seller] = await ethers.getSigners();
 
@@ -212,7 +212,7 @@ describe("EscrowContract_complete", function () {
   });
 });
 
-describe("EscrowContract_dispute", function () {
+describe("EscrowContract_Dispute", function () {
   it("Should create an escrow smart contract , make payment to escrow, a dispute is launched by buyer or seller", async function () {
     const [buyer,seller] = await ethers.getSigners();
 
