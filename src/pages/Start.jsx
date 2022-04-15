@@ -4,6 +4,7 @@ import '../App.css'
 import WalletBalance from '../components/WalletBalance'
 import Install from '../components/Install';
 import { Routes, Route, Link } from 'react-router-dom';
+const Web3 = require('web3')
 
 
 function Start() {

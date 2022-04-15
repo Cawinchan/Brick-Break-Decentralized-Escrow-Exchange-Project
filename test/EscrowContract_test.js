@@ -60,7 +60,7 @@ describe("EscrowContract_Payment", function () {
 
     // const web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/26907a93a74c4d028569de987e5dd064"))
 
-    const past_escrow_balance = await ethers.provider.getBalance(escrow.address);
+    // const past_escrow_balance = await ethers.provider.getBalance(escrow.address);
     // console.log("past escrow balance:",past_escrow_balance);
 
     // wait till payment is made
