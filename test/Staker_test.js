@@ -23,9 +23,13 @@ describe('Staker dApp', () => {
   let ExampleExternalContractFactory;
 
   beforeEach(async () => {
+    // Deploy ExampleExternalContract contract
+    ExampleExternalContractFactory = await ethers.getContractFactory('ExampleExternalContract');
+    exampleExternalContract = await ExampleExternalContractFactory.deploy();
+
     // Deploy Staker Contract
     const StakerContract = await ethers.getContractFactory('Staker');
-    stakerContract = await StakerContract.deploy();
+    stakerContract = await StakerContract.deploy(exampleExternalContract.address);
 
     // eslint-disable-next-line no-unused-vars
     [owner, addr1, addr2, ...addrs] = await ethers.getSigners();

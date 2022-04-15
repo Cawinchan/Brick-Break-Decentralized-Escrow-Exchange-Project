@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 
-
 pragma solidity ^0.8.4;
 
 import "hardhat/console.sol";
+import "./ExampleExternalContract.sol";
 
 
 /**
@@ -12,6 +12,9 @@ import "hardhat/console.sol";
 * @notice A contract that allow users to stack ETH
 */
 contract Staker {
+
+  // External contract that will stack old funds
+  ExampleExternalContract public exampleExternalContract;
 
   // Balances of the user's stacked funds
   mapping(address => uint256) public balances;
@@ -40,22 +43,39 @@ contract Staker {
     _;
   }
 
-//   function execute() public deadlineReached(false) {
-//     uint256 contractBalance = address(this).balance;
+  /**
+  * @notice Modifier that require the external contract to not be completed
+  */
+  modifier stakeNotCompleted() {
+    bool completed = exampleExternalContract.completed();
+    require(!completed, "staking process already completed");
+    _;
+  }
 
-//     // check the contract has enough ETH to reach the treshold
-//     require(contractBalance >= threshold, "Threshold not reached");
+  /**
+  * @notice Contract Constructor
+  * @param exampleExternalContractAddress Address of the external contract that will hold stacked funds
+  */
+  constructor(address exampleExternalContractAddress) {
+    exampleExternalContract = ExampleExternalContract(exampleExternalContractAddress);
+  }
 
-//     // Execute the external contract, transfer all the balance to the contract
-//     // (bool sent, bytes memory data) = this.complete{value: contractBalance}();
-//     (bool sent,) = address(this).call{value: contractBalance}(abi.encodeWithSignature("complete()"));
-//     require(sent, "this.complete failed");
-//   }
+  function execute() public stakeNotCompleted deadlineReached(false) {
+    uint256 contractBalance = address(this).balance;
+
+    // check the contract has enough ETH to reach the treshold
+    require(contractBalance >= threshold, "Threshold not reached");
+
+    // Execute the external contract, transfer all the balance to the contract
+    // (bool sent, bytes memory data) = exampleExternalContract.complete{value: contractBalance}();
+    (bool sent,) = address(exampleExternalContract).call{value: contractBalance}(abi.encodeWithSignature("complete()"));
+    require(sent, "exampleExternalContract.complete failed");
+  }
 
   /**
   * @notice Stake method that update the user's balance
   */
-  function stake() public payable deadlineReached(false) {
+  function stake() public payable deadlineReached(false) stakeNotCompleted {
     // update the user's balance
     balances[msg.sender] += msg.value;
     
@@ -66,7 +86,7 @@ contract Staker {
   /**
   * @notice Allow users to withdraw their balance from the contract only if deadline is reached but the stake is not completed
   */
-  function withdraw() public deadlineReached(true) {
+  function withdraw() public deadlineReached(true) stakeNotCompleted {
     uint256 userBalance = balances[msg.sender];
 
     // check if the user has balance to withdraw
