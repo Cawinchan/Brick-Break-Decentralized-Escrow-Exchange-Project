@@ -17,14 +17,23 @@ async function main() {
   let provider = ethers.getDefaultProvider('ropsten');
   let privateKey = '0x27b6fb552b99a41f99e76df0d37d806e84dd020924b628a2ba79c70fbaa9c5d2';
   let wallet = new ethers.Wallet(privateKey, provider);
-  const Escrow = await ethers.getContractFactory("EscrowContract",wallet=wallet);
-  const escrow = await Escrow.deploy(
-    '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', // Buyer
-    '0x70997970c51812dc3a010c7d01b50e0d17dc79c8', // Seller (Same as buyer address to trick the hardhat into thinking we are the seller)
-    '200000000000000000' // value in wei (1 eth = 1*10^18 wei)
-    );
+   // Deploy ExampleExternalContract contract
+   ExampleExternalContractFactory = await ethers.getContractFactory('ExampleExternalContract',wallet=wallet);
+   exampleExternalContract = await ExampleExternalContractFactory.deploy();
 
-  console.log("Greeter deployed to:", escrow.address);
+   // Deploy Staker Contract
+   const StakerContract = await ethers.getContractFactory('Staker',wallet=wallet);
+   stakerContract = await StakerContract.deploy(exampleExternalContract.address);
+
+
+  // const Staker = await ethers.getContractFactory("Staker",wallet=wallet);
+  // const staker = await Staker.deploy(
+  //   '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', // Buyer
+  //   '0x70997970c51812dc3a010c7d01b50e0d17dc79c8', // Seller (Same as buyer address to trick the hardhat into thinking we are the seller)
+  //   '200000000000000000' // value in wei (1 eth = 1*10^18 wei)
+  //   );
+
+  console.log("Greeter deployed to:", stakerContract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
