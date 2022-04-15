@@ -20,10 +20,10 @@ import Judging from "./pages/Judging";
 import Result from "./pages/Result";
 
 function App() {
-  if (!window.ethereum) {
-    return <Install />;
-    }
-  else{
+  // if (!window.ethereum) {
+  //   return <Install />;
+  //   }
+  // else{
     const [count, setCount] = useState(0)
 
     return (
@@ -49,7 +49,7 @@ function App() {
       </div>
     )
   }
-}
+// }
 
 
 export default App
