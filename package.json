@@ -65,5 +65,17 @@
       "**/hardhat-ts/**"
     ]
   },
-  "dependencies": {}
+  "devDependencies": {
+    "hardhat": "^2.9.3"
+  },
+  "dependencies": {
+    "atob": "^2.1.2",
+    "hardhat-gas-reporter": "^1.0.8",
+    "is-docker": "^3.0.0",
+    "jsec": "^1.0.1",
+    "jsesc": "^3.0.2",
+    "mime": "^3.0.0",
+    "rollup": "^2.70.2",
+    "sshpk": "^1.17.0"
+  }
 }

@@ -4,6 +4,8 @@ const chalk = require("chalk");
 
 require("@nomiclabs/hardhat-waffle");
 require("@tenderly/hardhat-tenderly");
+require("hardhat-gas-reporter");
+
 
 require("hardhat-deploy");
 
@@ -42,6 +44,10 @@ function mnemonic() {
 }
 
 module.exports = {
+  gasReporter: {
+    enabled: process.env.REPORT_GAS = true,
+    currency: "USD",
+  },
   defaultNetwork,
 
   // don't forget to set your provider like:
