@@ -18,6 +18,7 @@ contract Staker {
 
   // Balances of the user's stacked funds
   mapping(address => uint256) public balances;
+  address[] public stakers;   // Stakers
 
   // Staking threshold
   uint256 public constant threshold = 1 ether;
@@ -78,6 +79,7 @@ contract Staker {
   function stake() public payable deadlineReached(false) stakeNotCompleted {
     // update the user's balance
     balances[msg.sender] += msg.value;
+    stakers.push(msg.sender);
     
     // emit the event to notify the blockchain that we have correctly Staked some fund for the user
     emit Stake(msg.sender, msg.value);
@@ -95,6 +97,15 @@ contract Staker {
     // reset the balance of the user
     balances[msg.sender] = 0;
 
+    // Remove staker from list
+    for (uint i = 0; i<stakers.length-1; i++){
+            if (stakers[i] == msg.sender){
+                stakers[i] = stakers[stakers.length - 1];
+                break;
+            }
+        }
+    stakers.pop();
+    
     // Transfer balance back to the user
     (bool sent,) = msg.sender.call{value: userBalance}("");
     require(sent, "Failed to send user balance back to the user");
@@ -110,5 +121,17 @@ contract Staker {
       return deadline - block.timestamp;
     }
   }
+
+  /// @dev Returns list of stakers.
+    /// @return List of owner stakers.
+    function getStakers()
+        view
+        public
+        returns (address[] memory)
+    {
+        return stakers;
+    }
+
+  
 
 }

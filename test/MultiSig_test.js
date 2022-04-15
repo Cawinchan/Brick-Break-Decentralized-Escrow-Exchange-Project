@@ -49,7 +49,7 @@ describe("MultiSig_ArbitratorApprove", function () {
     await multisig.connect(EscrowContract).depositFunds({value: '2000000000000000000'});
     
     await multisig.connect(arbitrator1).ApproveDispute();
-
+      
     const confirmation_count = await  multisig.getConfirmationCount().then();
 
     expect(confirmation_count).to.equal(1)
