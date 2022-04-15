@@ -6,7 +6,6 @@ import "hardhat/console.sol";
 
 /**
 * @title Stacker Contract
-* @author scaffold-eth
 * @notice A contract that allow users to stack ETH
 */
 contract Staker {
@@ -14,9 +13,6 @@ contract Staker {
   // Balances of the user's stacked funds
   mapping(address => uint256) public balances;
   address[] public stakers;   // Stakers
-
-  // Staking deadline
-  uint256 public deadline = block.timestamp + 120 seconds;
 
   // Contract's Events
   event Stake(address indexed sender, uint256 amount);
@@ -68,7 +64,5 @@ contract Staker {
     {
         return stakers;
     }
-
-  
 
 }
