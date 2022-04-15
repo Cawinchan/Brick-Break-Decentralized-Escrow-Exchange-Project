@@ -109,13 +109,13 @@ contract EscrowContract{
         // checks if correct amount of payment was made
         require(msg.value == value, "Amount sent must be same as specified in the Escrow Contract!");
         state = State.await_delivery;
-        payable(address(this)).transfer(msg.value);
+        (bool sent,) = address(this).call{value: msg.value}("");
+        require(sent, "Failed to send funds to escrowcontract");
     }
 
     // Defining function to cancel payment
     function cancelPayment() onlyBuyer instate(
       State.await_payment) public{
-
         // emit event Cancel(block.timestamp);
         state = State.cancelled;
           
@@ -125,21 +125,25 @@ contract EscrowContract{
     function returnPayment() onlySeller instate(
       State.await_delivery) public{
        state = State.cancelled;
-       buyer.transfer(address(this).balance);
+       (bool sent,) = buyer.call{value: address(this).balance}("");
+        require(sent, "Failed to return funds to buyer");
+
     }
       
     // Defining function to confirm delivery
     function confirmDelivery() onlyBuyer instate(
       State.await_delivery) public{
         state = State.complete;
-        seller.transfer(address(this).balance);
+        (bool sent,) = seller.call{value: address(this).balance}("");
+        require(sent, "Failed to send funds to seller");
     }
 
     // seller calls this transation to gain the funds themself if the buyer does not launch a dispute within a day
     function completeTransaction() onlySeller instate(
       State.await_delivery) afterADay() public{
         state = State.complete;
-        seller.transfer(address(this).balance);
+        (bool sent,) = seller.call{value: address(this).balance}("");
+        require(sent, "Failed to send funds to seller");
     }
 
     function launchDispute() instate(

@@ -106,7 +106,8 @@ contract MultiSigWallet {
             instate(State.await_deposit)
             {
         state = State.await_approval;
-        payable(address(this)).transfer(msg.value);
+        (bool sent,) = address(this).call{value: msg.value}("");
+        require(sent, "Failed to send funds to multisig");
     }
 
     /// @dev Allows an arbitrator to approve the dispute within a day
@@ -123,7 +124,8 @@ contract MultiSigWallet {
         if (ApprovalCount >= required){
             // Smart contract sends its balance to the disputer 
             state = State.dispute_succesful;
-            disputer.transfer(address(this).balance);
+            (bool sent,) = disputer.call{value: address(this).balance}("");
+            require(sent, "Failed to send funds to disputer");
             emit Execution(block.timestamp);
         }
     }
@@ -135,9 +137,13 @@ contract MultiSigWallet {
     {
         if (ApprovalCount < required){
             state = State.dispute_failed;
+            (bool sent,) = disputee.call{value: address(this).balance}("");
+            require(sent, "Failed to send funds to disputee");
         }
         if (ApprovalCount >= required){
             state = State.dispute_succesful;
+            (bool sent,) = disputer.call{value: address(this).balance}("");
+            require(sent, "Failed to send funds to disputer");
         }
     }
 
