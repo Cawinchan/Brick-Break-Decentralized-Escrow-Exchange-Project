@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
+  // import WalletBalance from '../components/WalletBalance'
+
 
 function WalletBalance() {
 
