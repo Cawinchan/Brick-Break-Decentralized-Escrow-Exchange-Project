@@ -38,7 +38,7 @@ contract Staker {
     // check if the user has balance to withdraw
     require(userBalance > 0, "You don't have balance to withdraw");
 
-    // reset the balance of the user, update state first to prevent re-entry
+    // reset the balance of the user, update state first to prevent Re-Entrancy Attack
     balances[msg.sender] = 0;
 
     // Remove staker from list

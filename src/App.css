@@ -4,6 +4,7 @@
 
 .App-logo {
   height: 20vmin;
+
   pointer-events: none;
   
 }
@@ -21,14 +22,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url('./fern.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -2cm;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .App-link {
