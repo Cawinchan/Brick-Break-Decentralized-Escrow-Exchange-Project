@@ -19,6 +19,7 @@ contract EscrowContract{
     address payable public buyer;
     address payable public seller;
     uint256 public value;
+    string[] public terms;
     uint256 public time_created;
     
 
@@ -28,7 +29,8 @@ contract EscrowContract{
     //      uint256 arbitrator_amount;
     //      uint256 lenght_of_contract:
     // }
-            
+        
+
   
     // Defining a enumerator 'State'
     enum State{
@@ -80,7 +82,8 @@ contract EscrowContract{
     // Defining a constructor
     constructor(address payable _buyer, 
                 address payable _sender,
-                uint256 _value) payable{
+                uint256 _value,
+                string[] memory _terms) payable{
         
         // Assigning the values of the 
         // state variables
@@ -88,6 +91,7 @@ contract EscrowContract{
         buyer = _buyer;
         seller = _sender;
         value = _value;
+        terms = _terms;
         state = State.await_confirmation;
         time_created = block.timestamp;
 
