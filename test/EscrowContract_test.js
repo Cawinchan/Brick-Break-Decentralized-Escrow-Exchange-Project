@@ -58,11 +58,6 @@ describe('EscrowContract', () => {
       const state1 = await escrow.getState().then();
       expect(state1).to.equal(1);
 
-      // const web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/26907a93a74c4d028569de987e5dd064"))
-
-      // const past_escrow_balance = await ethers.provider.getBalance(escrow.address);
-      // console.log("past escrow balance:",past_escrow_balance);
-
       // wait till payment is made
       await escrow.connect(buyer).makePayment({value: '2000000000000000000'});
       
@@ -193,6 +188,9 @@ describe('EscrowContract', () => {
 
       const state1 = await escrow.getState().then();
       expect(state1).to.equal(4);
+
+      
+
 
       // Should transfer funds to new multi-sig-wallet
       // const updated_escrow_balance = await ethers.provider.getBalance(escrow.address);
