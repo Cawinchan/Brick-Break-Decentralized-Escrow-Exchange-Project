@@ -20,16 +20,14 @@ function Result() {
   return (
     <>
       <h1> Dispute {result}</h1>
-      <div>{message}</div>
-      Withdrawal Amount <p>3.0 Eth</p>
-      Withdrawal Address <p>0xb794f5ea0ba39494ce839613fffba74279579268</p>
-      Withdrawal Request <p>The buyer has been sent 50 units of the requested product as per agreed upon in the contract. I would like to withdraw the payment from the escrow account.</p>
-      <p>If you are rejecting the withdrawal request, please provide a reason for rejection.</p>
-      Rejection Request <p>The products sent by the seller has yet to arrive. I am unable to confirm that
-the transaction has been completed.
-Parcel Tracking Link: bit.ly/ParcelTracking12345678</p>
-      Transaction ID
-      <p>{transactionID}</p>
+      <div className="BlueRoundDiv">{message}</div>
+      <div className="flexbox">Withdrawal Amount <input readOnly className="GreyInputNarrow" value="3.0 Eth" /></div>
+      <div className="flexbox">Withdrawal Address <input readOnly className="GreyInputNarrow" value="0xb794f5ea0ba39494ce839613fffba74279579268" /></div>
+      <div className="flexbox">Withdrawal Request <textarea readOnly className="GreyInputWide" value="The buyer has been sent 50 units of the requested product as per agreed upon in the contract. I would like to withdraw the payment from the escrow account." /></div>
+      <div className="flexbox">Rejection Reason <textarea readOnly className="GreyInputWide" value="The products sent by the seller has yet to arrive. I am unable to confirm that the transaction has been completed. Parcel Tracking Link: bit.ly/ParcelTracking12345678" /></div>
+      <br />
+      <div className="flexbox">Arbitration Fee <input readOnly className="GreyInputNarrow" value="0.03 Eth" /></div>
+      <div className="flexbox">Transaction ID <input readOnly className="GreyInputNarrow" value={transactionID} /></div>
     </>
   )
 }

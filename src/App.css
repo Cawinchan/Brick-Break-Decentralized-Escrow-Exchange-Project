@@ -63,6 +63,30 @@ button {
   display: none;
 }
 
+.BlueRoundDiv {
+  color: black;
+  border-radius: 20px;
+  text-align: left;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding:10px;
+  background-color: #A7D1F8;
+  overflow: none;
+  width: 1233px;
+}
+
+.RedRoundDiv {
+  color: black;
+  border-radius: 20px;
+  text-align: left;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding:10px;
+  background-color: #F8A7A7;
+  overflow: none;
+  width: 1233px;
+}
+
 .BlueButton {
   width: 471px;
   height: 195px;
@@ -77,8 +101,37 @@ button {
 .GreyInput {
   background-color:#E8E8E8;
   font-size: 24px;
-  margin-bottom: 10%;
   border-radius: 15px;
   width: 1164px;
   height: 116px;
+}
+
+.GreyInputNarrow {
+  background-color:#E8E8E8;
+  font-size: 24px;
+  border-radius: 15px;
+  width:500px;
+  height: 40px;
+  margin-left:15px;
+  font-size:24px;
+}
+
+.GreyInputWide {
+  background-color:#E8E8E8;
+  font-size: 24px;
+  border-radius: 15px;
+  width:500px;
+  height: 200px;
+  margin-left:15px;
+  font-size:24px;
+  overflow-y: scroll;
+}
+
+.GreyInputWide::-webkit-scrollbar {
+  display: none;
+}
+
+.flexbox {
+  display:flex;
+  margin: 15px;
 }

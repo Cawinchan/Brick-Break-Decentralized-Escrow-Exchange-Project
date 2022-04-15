@@ -20,6 +20,7 @@ function Home() {
         <Link to="/Join">Join</Link><br />
         <Link to="/RoleSel">Role Selection</Link><br />
         <Link to="/Terms">Terms</Link><br />
+        <Link to="/TermsConfirm">Terms Confirm</Link><br />
         <Link to="/Request">Request Withdrawal</Link><br />
         <Link to="/Check">Withdrawal Check</Link><br />
         <Link to="/Notice">Dispute Notice</Link><br />

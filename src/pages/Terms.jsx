@@ -38,6 +38,21 @@ class Terms extends React.Component {
     <li>{contractTerm} </li>
   );
 
+  function submit() {
+    
+    var EthAmt = document.getElementById("EthAmt").value;
+    if (isNaN(parseFloat(EthAmt))) {
+      alert("Ethereum Amount is not a number!")
+    } else if (parseFloat(EthAmt)<0) {
+      alert("Ethereum Amount cannot be less than 0!")
+    }
+    else {
+      localStorage.setItem("terms",JSON.stringify(contractTerms));
+      localStorage.setItem("EthAmt",EthAmt);
+      console.log("Eth Amount set")
+    }
+  }
+
   return (
     <>
     <div className="GreyRoundDiv" style={{paddingTop:"0px",maxHeight:"45vh",overflowY:"scroll"}}>
@@ -46,9 +61,13 @@ class Terms extends React.Component {
     </div>
     <h3>Press the add clause button after writing the clause to be added.</h3>
     <textarea className="GreyInput" type="text" ref={(ip) => {this.newText = ip}}/>
+    <div style={{display:"flex",marginTop:"15px"}}>
+    Value of Contract:
+    <input className="GreyInput" id="EthAmt" type="numbers" step="0.01" style={{marginLeft:"150px",height:"30px",width:"100px"}} /> Eth
     <button className="BlueButton" style={{position:"absolute",bottom:"5vh",left:"8vw",width:"27vw",height:"8vh"}} onClick={this.save.bind(this)}>Add Clause</button>
+    </div>
     <button className="BlueButton" style={{position:"absolute",bottom:"5vh",width:"27vw",height:"8vh"}}onClick={this.pop.bind(this)}>Delete Last</button>
-    <button className="BlueButton" style={{position:"absolute",bottom:"5vh",right:"8vw",width:"27vw",height:"8vh"}} onClick={localStorage.setItem("terms",JSON.stringify(contractTerms))}>Confirm Contract</button>
+    <button className="BlueButton" style={{position:"absolute",bottom:"5vh",right:"8vw",width:"27vw",height:"8vh"}} onClick={submit}>Confirm Contract</button>
     </>
   )
   }
