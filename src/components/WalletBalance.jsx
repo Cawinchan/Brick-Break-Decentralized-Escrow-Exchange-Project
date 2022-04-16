@@ -13,18 +13,20 @@ function WalletBalance() {
         try {
           // Request account access
           await window.ethereum.enable();
-          // var accounts = await web3.eth.getAccounts();
+          var accounts = await web3.eth.getAccounts();
           const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' });
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const balance = await provider.getBalance(account);
           setBalance(parsefloat(ethers.utils.formatEther(balance)).tofixed(2));
         } catch(e) {
           // User denied access
+          console.log(e)
         }
         
       }
       else{
-        return <Install />;
+        console.log("MetaMask not installed!")
+        //return <Install />;
       }
 
         

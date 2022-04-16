@@ -5,8 +5,16 @@ import WalletBalance from '../components/WalletBalance'
 import Install from '../components/Install';
 import { Routes, Route, Link } from 'react-router-dom';
 
-
 function Check() {
+  var WithdrawalAmt = localStorage.getItem("WithdrawalAmt",WithdrawalAmt);
+  var WithdrawalAddr = localStorage.getItem("WithdrawalAddr",WithdrawalAddr);
+  var WithdrawalReason = localStorage.getItem("WithdrawalReason",WithdrawalReason);
+
+  function Reject() {
+    var RejectionReason = document.getElementById("RejectionReason").value;
+    localStorage.setItem("RejectionReason",RejectionReason);
+    console.log("Rejection Submitted")
+  }
 
   return (
     <>
@@ -17,14 +25,14 @@ function Check() {
       arbitrators to decide if the withdrawal request should be accepted or declined. 
       </div><br />
       <div className="RedRoundDiv"> Note that in the event of arbitration, a small fee may apply.</div>
-      <div className="flexbox">Withdrawal Amount <input readOnly className="GreyInputNarrow" value="3.0 Eth" /></div>
-      <div className="flexbox">Withdrawal Address <input readOnly className="GreyInputNarrow" value="0xb794f5ea0ba39494ce839613fffba74279579268" /></div>
-      <div className="flexbox">Withdrawal Request <textarea readOnly className="GreyInputWide" value="The buyer has been sent 50 units of the requested product as per agreed upon in the contract. I would like to withdraw the payment from the escrow account." /></div>
+      <div className="flexbox">Withdrawal Amount <input readOnly className="GreyInputNarrow" value={WithdrawalAmt+" Eth"} /></div>
+      <div className="flexbox">Withdrawal Address <input readOnly className="GreyInputNarrow" value={WithdrawalAddr} /></div>
+      <div className="flexbox">Withdrawal Request <textarea readOnly className="GreyInputWide" value={WithdrawalReason} /></div>
       <p>If you are rejecting the withdrawal request, please provide a reason for rejection.</p>
-      <div className="flexbox">Rejection Reason <textarea className="GreyInputWide" /></div>
+      <div className="flexbox">Rejection Reason <textarea className="GreyInputWide" id="RejectionReason" /></div>
       <div className="flexbox">
       <button className='BlueButton' style={{margin:"15px"}}>Accept</button>
-      <button className='BlueButton' style={{margin:"15px"}}>Reject</button>
+      <button className='BlueButton' style={{margin:"15px"}} onClick={Reject}>Reject</button>
       </div>
     </>
   )

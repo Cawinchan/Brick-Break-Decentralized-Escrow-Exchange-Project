@@ -16,15 +16,16 @@ import TermsConfirm from "./pages/TermsConfirm";
 import Request from "./pages/Request";
 import Check from "./pages/Check";
 import Notice from "./pages/Notice";
+import Staking from "./pages/Staking";
 import Arbitration from "./pages/Arbitration";
 import Judging from "./pages/Judging";
 import Result from "./pages/Result";
 
 function App() {
-  // if (!window.ethereum) {
-  //   return <Install />;
-  //   }
-  // else{
+  if (!window.ethereum) {
+    return <Install />;
+    }
+  else{
     const [count, setCount] = useState(0)
 
     return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/Request" element={<Request />} />
             <Route path="/Check" element={<Check />} />
             <Route path="/Notice" element={<Notice />} />
+            <Route path="/Staking" element={<Staking />} />
             <Route path="/Arbitration" element={<Arbitration />} />
             <Route path="/Judging" element={<Judging />} />
             <Route path="/Result" element={<Result />} />
@@ -51,7 +53,7 @@ function App() {
       </div>
     )
   }
-// }
+}
 
 
 export default App

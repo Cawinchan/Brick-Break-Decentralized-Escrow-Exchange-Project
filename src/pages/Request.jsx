@@ -8,20 +8,37 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 function Request() {
 
+  function SubmitRequest() {
+    var WithdrawalAmt = document.getElementById("WithdrawalAmt").value;
+    if (Number.isInteger(WithdrawalAddr)) {
+      alert("Withdraw Amount is not a number!")
+    } else if ((WithdrawalAmt)<0) {
+      alert("Withdraw Amount cannot be less than 0!")
+    }
+    else {
+      localStorage.setItem("WithdrawalAmt",WithdrawalAmt);
+      var WithdrawalAddr = document.getElementById("WithdrawalAddr").value;
+      localStorage.setItem("WithdrawalAddr",WithdrawalAddr);
+      var WithdrawalReason = document.getElementById("WithdrawalReason").value;
+      localStorage.setItem("WithdrawalReason",WithdrawalReason);
+      console.log("Save Withdrawal Request");
+    }
+  }
+
   return (
     <>
       <h1> Request Withdrawal</h1>
       <div className="BlueRoundDiv">Upon withdrawal application confirmation, the other party will be asked for consent to withdraw the money. In the event that the other party refuses consent, the money in the escrow wallet will be transferred to a different wallet where the transaction will be decided by a group of independent arbitrators.</div>
       <div className="flexbox">
-      Withdrawal Amount <input className="GreyInputNarrow" />
+      Withdrawal Amount <input type="number" className="GreyInputNarrow" id="WithdrawalAmt" />
       </div>
       <div className="flexbox">
-      Withdrawal Address <input className="GreyInputNarrow" />
+      Withdrawal Address <input className="GreyInputNarrow" id="WithdrawalAddr" />
       </div>
       <div className="flexbox">
-      Withdrawal Reason <textarea className="GreyInputWide" />
+      Withdrawal Reason <textarea className="GreyInputWide" id="WithdrawalReason" />
       </div>
-      <button className='BlueButton' style={{width:"271",height:"95px"}}>Confirm Request</button>
+      <button className='BlueButton' style={{width:"271",height:"95px"}} onClick={SubmitRequest}>Confirm Request</button>
     </>
   )
 }

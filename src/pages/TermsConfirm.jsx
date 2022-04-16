@@ -5,8 +5,7 @@ import WalletBalance from '../components/WalletBalance'
 import Install from '../components/Install';
 import { Routes, Route, Link } from 'react-router-dom';
 import React from "react";
-import { ethers } from "ethers";
-
+import { ethers } from 'ethers';
 
 class TermsConfirm extends React.Component {
   async deployContract() {
