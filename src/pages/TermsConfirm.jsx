@@ -14,7 +14,7 @@ class TermsConfirm extends React.Component {
     const sellerAddr = localStorage.getItem("sellerAddr");
     const EthAmt = localStorage.getItem("EthAmt");
     const contractTerms = JSON.parse(localStorage.getItem("terms"));
-    const EscrowContract = await ethers.getContractFactory("EscrowContract",wallet=wallet);
+    const EscrowContract = await ethers.getContractFactory("EscrowContract");
     const contract = await EscrowContract.deploy(
       buyerAddr, //'0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', // Buyer
       sellerAddr, //'0x70997970c51812dc3a010c7d01b50e0d17dc79c8', // Seller (Same as buyer address to trick the hardhat into thinking we are the seller)
