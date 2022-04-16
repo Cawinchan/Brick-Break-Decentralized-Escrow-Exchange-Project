@@ -34,7 +34,7 @@ npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS
 ![alt text](https://github.com/Cawinchan/Brick-Break-Decentralized-Escrow-Exchange-Project/blob/master/images/DEEP%20Seqeunce%20Diagram.png) 
 
 ## States for tracking progress
-![alt text](https://github.com/Cawinchan/Brick-Break-Decentralized-Escrow-Exchange-Project/blob/master/images/final%20state%20diagram.png) 
+![alt text](https://github.com/Cawinchan/Brick-Break-Decentralized-Escrow-Exchange-Project/blob/master/images/all_states_diagram.drawio.png) 
 
 
 ## Functionalities
