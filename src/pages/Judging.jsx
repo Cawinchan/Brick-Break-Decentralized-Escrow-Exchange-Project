@@ -15,6 +15,7 @@ function Judging() {
   return (
     <>
       <h1> Dispute Judging</h1>
+      <div className="TopRightDiv">Arbitrators</div>
       <div className="BlueRoundDiv">The seller has made a request to withdraw the funds from the escrow account. However, the buyer has
 rejected the withdrawal request. </div>
 <div className="flexbox">Withdrawal Amount <input readOnly className="GreyInputNarrow" value={WithdrawalAmt+" Eth"} /></div>

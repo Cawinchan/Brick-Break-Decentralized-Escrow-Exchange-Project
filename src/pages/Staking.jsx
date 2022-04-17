@@ -174,6 +174,7 @@ class Staking extends React.Component {
   return (
     <>
       <h1> Staking</h1>
+      <div className="TopRightDiv">Arbitrators</div>
       <div className="flexbox">{StakeAmt} / <strong id="stakeTotal">{StakeTotal}</strong>Eth <button onClick={update} style={{width:"150px",height:"30px",marginLeft:"30px",fontSize:"14px"}}> Update </button></div>
       <div className="flexbox">
       <button className='BlueButton' style={{margin:"15px"}} onClick={stake}>Stake</button>

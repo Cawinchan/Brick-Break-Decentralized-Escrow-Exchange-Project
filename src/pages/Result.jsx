@@ -25,6 +25,7 @@ function Result() {
   return (
     <>
       <h1> Dispute {result}</h1>
+      <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">{message}</div>
       <div className="flexbox">Withdrawal Amount <input readOnly className="GreyInputNarrow" value={WithdrawalAmt+" Eth"} /></div>
       <div className="flexbox">Withdrawal Address <input readOnly className="GreyInputNarrow" value={WithdrawalAddr} /></div>

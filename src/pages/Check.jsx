@@ -19,6 +19,7 @@ function Check() {
   return (
     <>
       <h1> Withdrawal Check</h1>
+      <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">The seller has made a request to withdraw the money from the escrow account. You may choose to accept
       or decline this request. In the event that you accept, the withdrawal transaction will proceed. In the event that
       you decline, the seller can choose to cancel the withdrawal request or to move the request to a group of 
