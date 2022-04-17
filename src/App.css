@@ -140,3 +140,9 @@ button {
   display:flex;
   margin: 15px;
 }
+
+.TopRightDiv {
+  display: absolute;
+  right:2%;
+  top:2%;
+}
