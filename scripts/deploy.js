@@ -12,7 +12,7 @@ async function main() {
   const escrow = await Escrow.deploy(
     '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', // Buyer
     '0x70997970c51812dc3a010c7d01b50e0d17dc79c8', // Seller (Same as buyer address to trick the hardhat into thinking we are the seller)
-    '200000000000000000' // value in wei (1 eth = 1*10^18 wei)
+    '200000000000000000', // value in wei (1 eth = 1*10^18 wei)
     ["fdfds", "erfesfas"] // terms
     );
 
