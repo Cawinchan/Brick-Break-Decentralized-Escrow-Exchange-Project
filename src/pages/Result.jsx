@@ -12,11 +12,11 @@ function Result() {
   var WithdrawalReason = localStorage.getItem("WithdrawalReason",WithdrawalReason);
   var RejectionReason = localStorage.getItem("RejectionReason",RejectionReason);
 
-  var result = "Accepted";
-  const accepted = "The following transaction has been accepted by the group of arbitrators. Hence, the transaction has been approved and will proceed. The transaction information is below. The transaction ID for the transaction to the address is listed below.";
-  const rejected = "The following transaction has been rejected by the group of arbitrators. Hence, the transaction has been rejected and will not proceed. The transaction fee has been deducted. The transaction ID for the returning of funds to the escrow account has been recorded.";
+  var result = "Resolved";
+  const accepted = "The following dispute has been approved by the group of arbitrators. Hence, the transaction has been approved and will proceed. The transaction information is below. The transaction ID for the transaction to the address is listed below.";
+  const rejected = "The following dipuste has been rejected by the group of arbitrators. Hence, the transaction has been rejected and will not proceed. The transaction fee has been deducted. The transaction ID for the returning of funds to the escrow account has been recorded.";
   var message = "";
-  if (result == "Accepted") {
+  if (result == "Resolved") {
     message = accepted;
   } else {
     message = rejected;
