@@ -35,8 +35,10 @@ function WalletBalance() {
     return (
       <div>
          
-          <h5>Your Balance: {balance} {balance ? <FaEthereum/> : ''} </h5>
-          <button onClick={() => getBalance(  )}>Show My Balance</button>
+          <h5 className="font-semibold">Your Balance: {balance} {balance ? <FaEthereum/> : ''} </h5>
+          <div className='flexbox'>
+          <button onClick={() => getBalance(  )} className="cyan-fab">Show My Balance</button>
+          </div>
       </div>
     );
   };
