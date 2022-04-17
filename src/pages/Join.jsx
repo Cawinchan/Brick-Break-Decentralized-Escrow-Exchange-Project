@@ -11,6 +11,7 @@ function Join() {
 
   return (
     <>
+    <div className="TopRightDiv">Seller</div>
     <div className="GreyRoundDiv">
       <p>
         To join an Escrow , ask the other party for their 16 digit code!

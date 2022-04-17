@@ -15,6 +15,7 @@ function Arbitration() {
   return (
     <>
       <h1> Dispute Arbitration</h1>
+      <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">The buyer and seller have disputed on the withdrawal of funds to the following address with the provided reasons.
 Please attach a file containing additional information for the group of arbitrators to review, before they
 decide to accept or reject the transaction.</div>
@@ -24,7 +25,7 @@ decide to accept or reject the transaction.</div>
       <p>The following reason has been provided for the rejection.</p>
       <div className="flexbox">Rejection Reason <textarea readOnly className="GreyInputWide" value={RejectionReason} /></div>
       <div className="flexbox">
-        Attach File <button style={{marginLeft:"30px"}}>Browse</button>
+        File URL <input className='GreyInputNarrow' style={{marginLeft:"30px"}} />
       </div>
       <Link to="/Judging"><button className='BlueButton' style={{margin:"15px"}}>Confirm</button></Link>
     </>

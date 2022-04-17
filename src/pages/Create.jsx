@@ -11,6 +11,7 @@ function Create() {
 
   return (
     <>
+    <div className="TopRightDiv">Buyer</div>
     <div className="GreyRoundDiv">
       <p>
       You have now created a deal!

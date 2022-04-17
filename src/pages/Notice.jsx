@@ -339,6 +339,7 @@ class Notice extends React.Component {
 
   return (
     <>
+      <div className="TopRightDiv">Buyer</div>
       <h1> Dispute Notice</h1>
       <div className="BlueRoundDiv">Buyer has disputed the request made by you.  You have made a request to transfer 5.0 Eth to address
 0xb794f5ea0ba39494ce839613fffba74279579268. The buyer has rejected the request for the transfer.
