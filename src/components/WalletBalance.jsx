@@ -36,9 +36,9 @@ function WalletBalance() {
       <div>
          
           <h5 className="font-semibold">Your Balance: {balance} {balance ? <FaEthereum/> : ''} </h5>
-          <div className='flexbox'>
+          
           <button onClick={() => getBalance(  )} className="cyan-fab">Show My Balance</button>
-          </div>
+          
       </div>
     );
   };
