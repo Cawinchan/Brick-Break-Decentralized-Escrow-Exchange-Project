@@ -15,6 +15,7 @@ function Home() {
       <WalletBalance />
     </p>
     <nav>
+
         <Link to="/Start" className="cyan-fab">Start</Link>
         <Link to="/Create" className="cyan-fab">Create</Link>
         <Link to="/Join" className="cyan-fab">Join</Link>
@@ -29,6 +30,7 @@ function Home() {
         <Link to="/Arbitration" className="cyan-fab">Dispute Arbitration</Link>
         <Link to="/Judging" className="cyan-fab">Dispute Judging</Link>
         <Link to="/Result" className="cyan-fab">Dispute Result</Link>
+
     </nav>
     </>
   )

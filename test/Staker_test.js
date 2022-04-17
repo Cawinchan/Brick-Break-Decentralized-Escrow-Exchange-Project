@@ -85,7 +85,8 @@ describe('Staker dApp', () => {
 
         const stakers = await stakerContract.getStakers().then();
         expect(stakers.length).to.equal(2);
-        
+        console.log(stakers);
+
         // Check that the contract has the correct amount of ETH we just sent
         const contractBalance = await ethers.provider.getBalance(stakerContract.address);
         expect(contractBalance).to.equal('1000000000000000000');
@@ -100,6 +101,7 @@ describe('Staker dApp', () => {
 
         await stakerContract.connect(addr1).withdraw();
         const stakers2 = await stakerContract.getStakers().then();
+        console.log(stakers2);
         // check if size and staker removed is correct
         expect(stakers2.length).to.equal(1);
         expect(stakers2[0]).to.equal(stakers[1]);
