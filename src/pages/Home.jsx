@@ -23,6 +23,7 @@ function Home() {
         <Link to="/TermsConfirm">Terms Confirm</Link><br />
         <Link to="/Request">Request Withdrawal</Link><br />
         <Link to="/Check">Withdrawal Check</Link><br />
+        <Link to="/Undisputed">Undisputed Transaction</Link><br />
         <Link to="/Notice">Dispute Notice</Link><br />
         <Link to="/Staking">Staking</Link><br />
         <Link to="/Arbitration">Dispute Arbitration</Link><br />

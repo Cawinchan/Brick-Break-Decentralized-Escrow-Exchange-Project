@@ -20,6 +20,7 @@ import Staking from "./pages/Staking";
 import Arbitration from "./pages/Arbitration";
 import Judging from "./pages/Judging";
 import Result from "./pages/Result";
+import Undisputed from "./pages/Undisputed";
 
 function App() {
   if (!window.ethereum) {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/TermsConfirm" element={<TermsConfirm />} />
             <Route path="/Request" element={<Request />} />
             <Route path="/Check" element={<Check />} />
+            <Route path="/Undisputed" element={<Undisputed />} />
             <Route path="/Notice" element={<Notice />} />
             <Route path="/Staking" element={<Staking />} />
             <Route path="/Arbitration" element={<Arbitration />} />

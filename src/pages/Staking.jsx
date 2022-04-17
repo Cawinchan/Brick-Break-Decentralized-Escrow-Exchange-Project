@@ -14,7 +14,7 @@ class Staking extends React.Component {
   
   render() {
   var StakeAmt = 0.1;
-  var StakeTotal = -1;
+  var StakeTotal = 0;
   var address="0x4A5AC1275122e9b1fDc2306D53bf31a0EB6d3bE0";
   
 
@@ -161,11 +161,12 @@ class Staking extends React.Component {
     var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
     var total = web3.eth.getBalance(address).then(value => {
       console.log(value); // 👉️ "hello"
+      total = value/(10**18);
+      console.log(total);
+      document.getElementById("stakeTotal").textContent = total;
     });
     
-    console.log(total);
-    total = 100;
-    StakeTotal = total;
+    
   }
 
   
@@ -173,7 +174,7 @@ class Staking extends React.Component {
   return (
     <>
       <h1> Staking</h1>
-      {StakeAmt} / {StakeTotal} Eth <button onClick={update} />
+      <div className="flexbox">{StakeAmt} / <strong id="stakeTotal">{StakeTotal}</strong>Eth <button onClick={update} style={{width:"150px",height:"30px",marginLeft:"30px",fontSize:"14px"}}> Update </button></div>
       <div className="flexbox">
       <button className='BlueButton' style={{margin:"15px"}} onClick={stake}>Stake</button>
       <button className='BlueButton' style={{margin:"15px"}} onClick={withdraw}>Withdraw</button>
