@@ -6,22 +6,20 @@ import Install from '../components/Install';
 import { Routes, Route, Link } from 'react-router-dom';
 import React from "react";
 import { ethers } from 'ethers';
-import contractDeployment from "../../scripts/deploy.js"
 
 class TermsConfirm extends React.Component {
   async deployContract() {
     const buyerAddr = localStorage.getItem("buyerAddr");
     const sellerAddr = localStorage.getItem("sellerAddr");
     const EthAmt = localStorage.getItem("EthAmt");
-    const ContractTerms = JSON.parse(localStorage.getItem("terms"));
-    contractDeployment(buyerAddr,sellerAddr,EthAmt,ContractTerms);
-    //const EscrowContract = await ethers.getContractFactory("EscrowContract");
-    //const contract = await EscrowContract.deploy(
-    //  buyerAddr, //'0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', // Buyer
-    //  sellerAddr, //'0x70997970c51812dc3a010c7d01b50e0d17dc79c8', // Seller (Same as buyer address to trick the hardhat into thinking we are the seller)
-    //  EthAmt, //'200000000000000000' // value in wei (1 eth = 1*10^18 wei)0
-    //  contractTerms
-    //);
+    const contractTerms = JSON.parse(localStorage.getItem("terms"));
+    const EscrowContract = await ethers.getContractFactory("EscrowContract");
+    const contract = await EscrowContract.deploy(
+      buyerAddr, //'0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266', // Buyer
+      sellerAddr, //'0x70997970c51812dc3a010c7d01b50e0d17dc79c8', // Seller (Same as buyer address to trick the hardhat into thinking we are the seller)
+      EthAmt, //'200000000000000000' // value in wei (1 eth = 1*10^18 wei)0
+      contractTerms
+    );
     console.log("Contract deployed between:",contract.buyerAddr," and ",contract.sellerAddr);
   }
 
