@@ -159,8 +159,12 @@ class Staking extends React.Component {
 
   async function update() {
     var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
-    var total = web3.eth.getBalance(address).then();
+    var total = web3.eth.getBalance(address).then(value => {
+      console.log(value); // 👉️ "hello"
+    });
+    
     console.log(total);
+    total = 100;
     StakeTotal = total;
   }
 

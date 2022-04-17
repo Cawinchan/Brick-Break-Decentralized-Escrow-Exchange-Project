@@ -27,8 +27,8 @@ you can cancel the request.</div><br />
       <p>The following reason has been provided for the rejection.</p>
       <div className="flexbox">Rejection Reason <textarea className="GreyInputWide" value={RejectionReason} /></div>
       <div className="flexbox">
-      <button className='BlueButton' style={{margin:"15px"}}>Cancel Request</button>
-      <button className='BlueButton' style={{margin:"15px"}}>Dispute Arbitration</button>
+      <Link to="/Start"><button className='BlueButton' style={{margin:"15px"}}>Cancel Request</button></Link>
+      <Link to="/Arbitration"><button className='BlueButton' style={{margin:"15px"}}>Dispute Arbitration</button></Link>
       </div>
     </>
   )

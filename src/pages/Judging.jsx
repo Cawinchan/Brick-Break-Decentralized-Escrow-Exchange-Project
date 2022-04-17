@@ -29,7 +29,7 @@ rejected the withdrawal request. </div>
       e.preventDefault();
       window.location.href='https://drive.google.com/file/d/11x5R1CyLUS06YAoSusAj6u1GBPb87OQT/view?usp=sharing';
       }}>File From Seller</button>
-      <button className='BlueButton' style={{margin:"15px"}}>Approve Transaction</button>
+      <Link to="/Result"><button className='BlueButton' style={{margin:"15px"}}>Approve Transaction</button></Link>
     </>
   )
 }

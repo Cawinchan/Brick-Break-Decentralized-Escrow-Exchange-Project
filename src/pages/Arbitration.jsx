@@ -26,7 +26,7 @@ decide to accept or reject the transaction.</div>
       <div className="flexbox">
         Attach File <button style={{marginLeft:"30px"}}>Browse</button>
       </div>
-      <button className='BlueButton' style={{margin:"15px"}}>Confirm</button>
+      <Link to="/Judging"><button className='BlueButton' style={{margin:"15px"}}>Confirm</button></Link>
     </>
   )
 }

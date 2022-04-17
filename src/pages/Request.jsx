@@ -38,7 +38,7 @@ function Request() {
       <div className="flexbox">
       Withdrawal Reason <textarea className="GreyInputWide" id="WithdrawalReason" />
       </div>
-      <button className='BlueButton' style={{width:"271",height:"95px"}} onClick={SubmitRequest}>Confirm Request</button>
+      <Link to="/Check"><button className='BlueButton' style={{width:"271",height:"95px"}} onClick={SubmitRequest}>Confirm Request</button></Link>
     </>
   )
 }

@@ -38,8 +38,8 @@ function RoleSel() {
     <div className="flexbox" style={{position:"absolute",top:"40%"}}>Your Address <input className="GreyInputNarrow" id="Address" /></div>
     <h2 style={{marginTop:"20%"}}> Are you the buyer or the seller?</h2>
     <div>
-      <button className="BlueButton" style={{marginRight: "5vw"}} onClick={submitBuyer}>Buyer</button>
-      <button className="BlueButton" style={{marginLeft: "5vw"}} onClick={submitSeller}>Seller</button>
+    <Link to="/Terms"><button className="BlueButton" style={{marginRight: "5vw"}} onClick={submitBuyer}>Buyer</button></Link>
+    <Link to="/Terms"><button className="BlueButton" style={{marginLeft: "5vw"}} onClick={submitSeller}>Seller</button></Link>
     </div>
     </>
   )

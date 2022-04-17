@@ -67,7 +67,7 @@ class Terms extends React.Component {
     <button className="BlueButton" style={{position:"absolute",bottom:"5vh",left:"8vw",width:"27vw",height:"8vh"}} onClick={this.save.bind(this)}>Add Clause</button>
     </div>
     <button className="BlueButton" style={{position:"absolute",bottom:"5vh",width:"27vw",height:"8vh"}}onClick={this.pop.bind(this)}>Delete Last</button>
-    <button className="BlueButton" style={{position:"absolute",bottom:"5vh",right:"8vw",width:"27vw",height:"8vh"}} onClick={submit}>Confirm Contract</button>
+    <Link to="/TermsConfirm"><button className="BlueButton" style={{position:"absolute",bottom:"5vh",right:"8vw",width:"27vw",height:"8vh"}} onClick={submit}>Confirm Contract</button></Link>
     </>
   )
   }

@@ -19,7 +19,7 @@ function Join() {
       </p>
       <input></input>
       <br /><br />
-      <button className="BlueButton">Join Escrow</button>
+      <Link to="/RoleSel"><button className="BlueButton">Join Escrow</button></Link>
     </div>
     </>
   )

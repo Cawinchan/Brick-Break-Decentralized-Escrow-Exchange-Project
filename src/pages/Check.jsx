@@ -31,8 +31,8 @@ function Check() {
       <p>If you are rejecting the withdrawal request, please provide a reason for rejection.</p>
       <div className="flexbox">Rejection Reason <textarea className="GreyInputWide" id="RejectionReason" /></div>
       <div className="flexbox">
-      <button className='BlueButton' style={{margin:"15px"}}>Accept</button>
-      <button className='BlueButton' style={{margin:"15px"}} onClick={Reject}>Reject</button>
+      <Link to="/"><button className='BlueButton' style={{margin:"15px"}}>Accept</button></Link>
+      <Link to="/Notice"><button className='BlueButton' style={{margin:"15px"}} onClick={Reject}>Reject</button></Link>
       </div>
     </>
   )

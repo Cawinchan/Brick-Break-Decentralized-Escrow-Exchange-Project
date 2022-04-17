@@ -257,8 +257,8 @@ class TermsConfirm extends React.Component {
     <input className="GreyInput" id="EthAmt" type="numbers" step="0.01" style={{marginLeft:"150px",height:"30px",width:"100px",color:"black"}} value={localStorage.getItem("EthAmt")} readOnly /> Eth
     </div>
     <h3>Press review the contract.</h3>
-    <button className="BlueButton" style={{position:"absolute",bottom:"5vh",left:"12vw",width:"34vw",height:"8vh"}} onClick={this.deployContract}>Accept Contract</button>
-    <button className="BlueButton" style={{position:"absolute",bottom:"5vh",right:"12vw",width:"34vw",height:"8vh"}}>Decline Contract</button>
+    <Link to="/Request"><button className="BlueButton" style={{position:"absolute",bottom:"5vh",left:"12vw",width:"34vw",height:"8vh"}} onClick={this.deployContract}>Accept Contract</button></Link>
+    <Link to="/Request"><button className="BlueButton" style={{position:"absolute",bottom:"5vh",right:"12vw",width:"34vw",height:"8vh"}}>Decline Contract</button></Link>
     </>
   )
   }
