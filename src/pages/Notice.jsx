@@ -342,6 +342,8 @@ class Notice extends React.Component {
   return (
     <>
       <div className="TopRightDiv">Buyer</div>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <h1> Dispute Notice</h1>
       <div className="BlueRoundDiv">Buyer has disputed the request made by you.  You have made a request to transfer 5.0 Eth to address
 0xb794f5ea0ba39494ce839613fffba74279579268. The buyer has rejected the request for the transfer.
