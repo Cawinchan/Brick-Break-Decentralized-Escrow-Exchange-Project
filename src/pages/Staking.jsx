@@ -5,14 +5,19 @@ import WalletBalance from '../components/WalletBalance'
 import Install from '../components/Install';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Contract, ethers } from 'ethers';
-import Web3 from 'web3/dist/web3.min.js'
+import Web3 from 'web3/dist/web3.min.js';
+import React from "react";
 
 
 
-function Staking() {
-  var StakeAmt = 1;
-  var StakeTotal = 10;
-  var address="0x3DEb67Ea834688DaF9a4D9b190b57Ae0583e5f73";
+class Staking extends React.Component {
+  
+  render() {
+  var StakeAmt = 0.1;
+  var StakeTotal = -1;
+  var address="0x4A5AC1275122e9b1fDc2306D53bf31a0EB6d3bE0";
+  
+
   var abi =[
     {
       "anonymous": false,
@@ -148,20 +153,30 @@ function Staking() {
   async function withdraw() {
     var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
     var staker = new web3.eth.Contract(abi,address);
-    const result = await staker.methods.withdraw().call();
-    console.log(result);
+    staker.methods.withdraw().call();
+    console.log("Withdrawed");
   }
+
+  async function update() {
+    var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
+    var total = web3.eth.getBalance(address).then();
+    console.log(total);
+    StakeTotal = total;
+  }
+
+  
 
   return (
     <>
       <h1> Staking</h1>
-      {StakeAmt} / {StakeTotal} Eth
+      {StakeAmt} / {StakeTotal} Eth <button onClick={update} />
       <div className="flexbox">
       <button className='BlueButton' style={{margin:"15px"}} onClick={stake}>Stake</button>
       <button className='BlueButton' style={{margin:"15px"}} onClick={withdraw}>Withdraw</button>
       </div>
     </>
   )
+}
 }
 
 export default Staking

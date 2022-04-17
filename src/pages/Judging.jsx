@@ -21,8 +21,14 @@ rejected the withdrawal request. </div>
       <div className="flexbox">Withdrawal Address <input readOnly className="GreyInputNarrow" value={WithdrawalAddr} /></div>
       <div className="flexbox">Withdrawal Request <textarea readOnly className="GreyInputWide" value={WithdrawalReason} /></div>
       <div className="flexbox">Rejection Reason <textarea readOnly className="GreyInputWide" value={RejectionReason} /></div>
-      <button>File From Buyer</button>
-      <button>File From Seller</button>
+      <button onClick={(e) => {
+      e.preventDefault();
+      window.location.href='https://drive.google.com/file/d/1urMDocXEXh0X_39Xn1ysyLJa6TJwRio_/view?usp=sharing';
+      }}>File From Buyer</button>
+      <button onClick={(e) => {
+      e.preventDefault();
+      window.location.href='https://drive.google.com/file/d/11x5R1CyLUS06YAoSusAj6u1GBPb87OQT/view?usp=sharing';
+      }}>File From Seller</button>
       <button className='BlueButton' style={{margin:"15px"}}>Approve Transaction</button>
     </>
   )
