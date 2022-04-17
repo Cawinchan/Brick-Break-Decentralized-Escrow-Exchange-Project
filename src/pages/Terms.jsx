@@ -25,7 +25,7 @@ class Terms extends React.Component {
   pop() {
     var contractList = [...this.state.contractList];
     contractList.pop(this.newText.value);
-    this.setState({contractList});
+    this.setState({contractList});  
   }
 
   render() {
@@ -43,7 +43,7 @@ class Terms extends React.Component {
     var EthAmt = document.getElementById("EthAmt").value;
     if (isNaN(parseFloat(EthAmt))) {
       alert("Ethereum Amount is not a number!")
-    } else if (parseFloat(EthAmt)<0) {
+    } else if (parseFloat(EthAmt)<=0) {
       alert("Ethereum Amount cannot be less than 0!")
     }
     else {
