@@ -18,7 +18,6 @@ class TermsConfirm extends React.Component {
     var from = buyerAddr;
     var privateKey = "0x27b6fb552b99a41f99e76df0d37d806e84dd020924b628a2ba79c70fbaa9c5d2";
 
-
     var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
 
     web3.eth.accounts.wallet.add(privateKey);
