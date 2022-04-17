@@ -25,6 +25,8 @@ function Result() {
   return (
     <>
       <h1> Dispute {result}</h1>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">{message}</div>
       <div className="flexbox">Withdrawal Amount <input readOnly className="GreyInputNarrow" value={WithdrawalAmt+" Eth"} /></div>

@@ -21,6 +21,8 @@ function RoleSel() {
   return (
     <>
     <div className="TopRightDiv">Buyer</div>
+    <img src={logo} className="App-logo Home-Button" alt="logo" />
+    <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
     <h1 style={{position:"absolute",top:"5%"}}>Role Selection</h1>
     <div className="" style={{width:"30vw",marginRight:"5vw", position: "absolute", top:"20%",left:"12%"}}>
       <h2> Buyer </h2>

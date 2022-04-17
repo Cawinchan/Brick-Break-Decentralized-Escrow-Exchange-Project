@@ -10,6 +10,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 function Start() {
   return (
     <>
+    <img src={logo} className="App-logo Home-Button" alt="logo" />
+    <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
     <div className="GreyRoundDiv" style={{position: "absolute",width: "40vw",height: "80vh", left: "7vw", top: "85px"}}>
       <p>
         Start an Escrow Request

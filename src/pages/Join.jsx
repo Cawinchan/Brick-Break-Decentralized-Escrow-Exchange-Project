@@ -12,6 +12,8 @@ function Join() {
   return (
     <>
     <div className="TopRightDiv">Seller</div>
+    <img src={logo} className="App-logo Home-Button" alt="logo" />
+    <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
     <div className="GreyRoundDiv">
       <p>
         To join an Escrow , ask the other party for their 16 digit code!

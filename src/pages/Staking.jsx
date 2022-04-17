@@ -174,6 +174,10 @@ class Staking extends React.Component {
   return (
     <>
       <h1> Staking</h1>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <div className="TopRightDiv">Arbitrators</div>
       <div className="flexbox">{StakeAmt} / <strong id="stakeTotal">{StakeTotal}</strong>Eth <button onClick={update} style={{width:"150px",height:"30px",marginLeft:"30px",fontSize:"14px"}}> Update </button></div>
       <div className="flexbox">
