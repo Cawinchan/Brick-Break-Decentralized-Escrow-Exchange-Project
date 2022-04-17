@@ -112,6 +112,8 @@ button {
   border-radius: 15px;
   width: 1164px;
   height: 116px;
+  padding-left: 10px;
+  margin: 8px;
 }
 
 .GreyInputNarrow {
@@ -150,3 +152,7 @@ button {
   top:2%;
 }
 
+ol{
+  display:list-item;
+  list-style: decimal;
+}

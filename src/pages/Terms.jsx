@@ -263,7 +263,7 @@ class Terms extends React.Component {
   var dealID="ABCDEFGDHIJKLMNK";
   var contractTerms = this.state.contractList;
   var contractList = contractTerms.map((contractTerm,index) =>
-    <li>{contractTerm} </li>
+    <li >{contractTerm} </li>
   );
 
   function submit() {
