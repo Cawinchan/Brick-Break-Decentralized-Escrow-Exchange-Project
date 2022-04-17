@@ -19,7 +19,7 @@
   .App-logo {
     animation: App-logo-spin infinite 15s;
     animation-timing-function: cubic-bezier(1, 0.05, 0.05, 1);
-    animation-delay: 10s;
+    animation-delay: 0.2s;
     /* animation-direction: alternate; */
   }
 }
