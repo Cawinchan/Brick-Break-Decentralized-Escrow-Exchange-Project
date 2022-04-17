@@ -139,10 +139,10 @@ class Staking extends React.Component {
       params: [
         {
           from: account,
-          to: '0x3DEb67Ea834688DaF9a4D9b190b57Ae0583e5f73',
-          value: '0x29a2241af62c0000',
-          gasPrice: '0x09184e72a000',
-          gas: '0x2710',
+          to: address,
+          value: '0x16345785D8A0000',
+          gasPrice: '0x109682F1B',
+          gas: '0x1E8480',
         },
       ],
     })
