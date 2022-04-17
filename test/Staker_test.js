@@ -19,7 +19,6 @@ describe('Staker dApp', () => {
   let addrs;
 
   let stakerContract;
-  let exampleExternalContract;
 
   beforeEach(async () => {
     // Deploy Staker Contract
