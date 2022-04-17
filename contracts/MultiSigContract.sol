@@ -98,7 +98,6 @@ contract MultiSigWallet {
     arbitrators = _arbitrators;
     required = _required;
     state = State.await_deposit;
-
     time_created = block.timestamp;
     }
     
