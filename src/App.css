@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.Home-Button {
+  position: absolute;
+  left:2%;
+  top:2%;
+}
+
 .App-logo {
   height: 20vmin;
 
@@ -146,3 +152,4 @@ button {
   right:2%;
   top:2%;
 }
+

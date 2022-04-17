@@ -12,6 +12,7 @@ function Create() {
   return (
     <>
     <div className="TopRightDiv">Buyer</div>
+    <Link to="/"><img src={logo} className="App-logo Home-Button" alt="logo" /></Link>
     <div className="GreyRoundDiv">
       <p>
       You have now created a deal!

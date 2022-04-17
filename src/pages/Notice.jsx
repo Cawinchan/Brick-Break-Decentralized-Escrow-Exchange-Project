@@ -354,7 +354,7 @@ you can cancel the request.</div><br />
       <div className="flexbox">Rejection Reason <textarea className="GreyInputWide" value={RejectionReason} /></div>
       <div className="flexbox">
       <Link to="/Start"><button className='BlueButton' style={{margin:"15px"}}>Cancel Request</button></Link>
-      <Link to="/Arbitration"><button className='BlueButton' style={{margin:"15px"}}>Dispute Arbitration</button></Link>
+      <Link to="/Arbitration"><button className='BlueButton' style={{margin:"15px"}} onClick={this.deployContract}>Dispute Arbitration</button></Link>
       </div>
     </>
     )
