@@ -12,8 +12,8 @@ import Web3 from 'web3/dist/web3.min.js'
 function Staking() {
   var StakeAmt = 1;
   var StakeTotal = 10;
-  var address="0x6b87509a2d41f2194f694535852Ea094c24080C3";
-  var abi = [
+  var address="0x3DEb67Ea834688DaF9a4D9b190b57Ae0583e5f73";
+  var abi =[
     {
       "anonymous": false,
       "inputs": [
@@ -42,6 +42,25 @@ function Staking() {
         }
       ],
       "name": "balances",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getStakeAmount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -101,8 +120,9 @@ function Staking() {
   ]
 
   async function stake() {
-    const Staker = await Web3.eth.Contract(abi,address);
-    Staker.methods.stake().call();
+    var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
+    var staker = new web3.eth.Contract(abi,address);
+    staker.methods.stake().call();
     console.log("Staked");
   }
 
