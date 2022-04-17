@@ -18,6 +18,7 @@ chai.should();
 describe('EscrowContract', () => {
   let buyer;
   let seller;
+
   let escrow;
 
   beforeEach(async () => {
@@ -42,6 +43,7 @@ describe('EscrowContract', () => {
 
       // Wait for seller to approve the contract
       await escrow.connect(seller).approveContract();
+
       const state1 = await escrow.getState().then();
       expect(state1).to.equal(1);
     });
@@ -52,15 +54,21 @@ describe('EscrowContract', () => {
 
       // Wait for seller to approve the contract
       await escrow.connect(seller).approveContract();
+
       const state1 = await escrow.getState().then();
       expect(state1).to.equal(1);
+
       // wait till payment is made
       await escrow.connect(buyer).makePayment({value: '2000000000000000000'});
+      
       const state2 = await escrow.getState().then();
       expect(state2).to.equal(2);
 
+      // const escrow_balance = await web3.eth.getBalance(buyer).then();
       const escrow_balance = await ethers.provider.getBalance(escrow.address);
+
       // console.log("escrow balance after payment:",escrow_balance)
+
       expect(escrow_balance).to.equal(BigNumber.from('2000000000000000000'));
     });
   });
@@ -181,7 +189,9 @@ describe('EscrowContract', () => {
       const state1 = await escrow.getState().then();
       expect(state1).to.equal(4);
 
-    
+      
+
+
       // Should transfer funds to new multi-sig-wallet
       // const updated_escrow_balance = await ethers.provider.getBalance(escrow.address);
 
