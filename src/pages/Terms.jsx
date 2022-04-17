@@ -57,6 +57,7 @@ class Terms extends React.Component {
     <>
     <img src={logo} className="App-logo Home-Button" alt="logo" />
     <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
+    <h1 style={{position:"absolute",top:"5%"}}>Terms Proposal</h1>
     <div className="TopRightDiv">Buyer</div>
     <div className="GreyRoundDiv" style={{paddingTop:"0px",maxHeight:"45vh",overflowY:"scroll"}}>
       <h3>Contract Terms</h3>
