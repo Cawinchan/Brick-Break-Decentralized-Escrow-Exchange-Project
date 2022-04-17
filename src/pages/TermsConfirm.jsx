@@ -9,6 +9,7 @@ import { ethers } from 'ethers';
 import Web3 from 'web3/dist/web3.min.js'
 
 class TermsConfirm extends React.Component {
+
   async deployContract() {
     const buyerAddr = "0xdCa6F71e0540df223B0884361143208bc55f7694";  // Add buyer address
     const sellerAddr = "0x3b131Dfd7ACAC990250AfD467AAe714E76989EF3"; // Add seller address 

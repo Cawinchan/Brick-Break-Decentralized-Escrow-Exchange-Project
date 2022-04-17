@@ -17,6 +17,13 @@ contract Staker {
   // Contract's Events
   event Stake(address indexed sender, uint256 amount);
 
+  // Fallback function allows to deposit ether.
+    fallback() external payable{
+    }
+
+    receive() external payable {
+    }
+
   /**
   * @notice Stake method that update the user's balance and allows them to participate in arbitration
   */
@@ -69,7 +76,7 @@ contract Staker {
     view
     public 
     returns (uint) {
-        return balances[userAddress];
+      return balances[userAddress];
 }
 
 

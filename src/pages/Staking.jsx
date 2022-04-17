@@ -118,19 +118,38 @@ function Staking() {
       "type": "function"
     }
   ]
+  var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
+  var staker = new web3.eth.Contract(abi,address);
 
   async function stake() {
-    var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
-    var staker = new web3.eth.Contract(abi,address);
-    staker.methods.stake().call();
-    console.log("Staked");
+    await window.ethereum.enable();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    // const signer = await provider.getSigner();
+    // const signer_address = await signer.getAddress();
+    // await staker.methods.stake().send({from: signer_address,value:'100000000000000000'}).then(console.log);
+    ethereum
+    .request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          from: account,
+          to: '0x3DEb67Ea834688DaF9a4D9b190b57Ae0583e5f73',
+          value: '0x29a2241af62c0000',
+          gasPrice: '0x09184e72a000',
+          gas: '0x2710',
+        },
+      ],
+    })
+    .then((txHash) => console.log(txHash))
+    .catch((error) => console.error);
   }
 
   async function withdraw() {
-    const Staker = await ethers.Contract(address);
-    const staker = await Staker.attach(address);
-    staker.withdraw();
-    console.log("Withdrawed");
+    var web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/d197e75826f0412195f368cebcf2414e"));
+    var staker = new web3.eth.Contract(abi,address);
+    const result = await staker.methods.withdraw().call();
+    console.log(result);
   }
 
   return (
