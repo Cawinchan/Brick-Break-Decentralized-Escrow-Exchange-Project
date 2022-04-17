@@ -15,6 +15,8 @@ function Arbitration() {
   return (
     <>
       <h1> Dispute Arbitration</h1>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">The buyer and seller have disputed on the withdrawal of funds to the following address with the provided reasons.
 Please attach a file containing additional information for the group of arbitrators to review, before they

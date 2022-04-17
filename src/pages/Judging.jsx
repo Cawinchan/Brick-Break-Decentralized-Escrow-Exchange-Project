@@ -15,6 +15,8 @@ function Judging() {
   return (
     <>
       <h1> Dispute Judging</h1>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <div className="TopRightDiv">Arbitrators</div>
       <div className="BlueRoundDiv">The seller has made a request to withdraw the funds from the escrow account. However, the buyer has
 rejected the withdrawal request. </div>

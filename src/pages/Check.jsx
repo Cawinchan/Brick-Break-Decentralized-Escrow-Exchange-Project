@@ -19,6 +19,8 @@ function Check() {
   return (
     <>
       <h1> Withdrawal Check</h1>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">The seller has made a request to withdraw the money from the escrow account. You may choose to accept
       or decline this request. In the event that you accept, the withdrawal transaction will proceed. In the event that

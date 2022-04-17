@@ -28,6 +28,8 @@ function Request() {
   return (
     <>
       <h1> Request Withdrawal</h1>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <div className="TopRightDiv">Seller</div>
       <div className="BlueRoundDiv">Upon withdrawal application confirmation, the other party will be asked for consent to withdraw the money. In the event that the other party refuses consent, the money in the escrow wallet will be transferred to a different wallet where the transaction will be decided by a group of independent arbitrators.</div>
       <div className="flexbox">

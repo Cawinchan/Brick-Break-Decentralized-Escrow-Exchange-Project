@@ -19,6 +19,8 @@ function Undisputed() {
   var transactionID = "0xc0b00b52d0e4ea19d81f51730adc79a1850ce4c08c38e630b0c66687";
   return (
     <>
+      <img src={logo} className="App-logo Home-Button" alt="logo" />
+      <Link to="/"><div style={{position:"absolute",top:"2%",left:"2%",width:"12%",height:"20%"}} /></Link>
       <h1> Withdrawal Accepted</h1>
       <div className="TopRightDiv">Buyer</div>
       <div className="BlueRoundDiv">{message}</div>

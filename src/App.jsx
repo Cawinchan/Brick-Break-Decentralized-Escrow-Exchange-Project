@@ -13,6 +13,7 @@ import Join from "./pages/Join";
 import RoleSel from "./pages/RoleSel";
 import Terms from "./pages/Terms";
 import TermsConfirm from "./pages/TermsConfirm";
+import Deposit from "./pages/Deposit";
 import Request from "./pages/Request";
 import Check from "./pages/Check";
 import Notice from "./pages/Notice";
@@ -41,6 +42,7 @@ function App() {
             <Route path="/RoleSel" element={<RoleSel />} />
             <Route path="/Terms" element={<Terms />} />
             <Route path="/TermsConfirm" element={<TermsConfirm />} />
+            <Route path="/Deposit" element={<Deposit />} />
             <Route path="/Request" element={<Request />} />
             <Route path="/Check" element={<Check />} />
             <Route path="/Undisputed" element={<Undisputed />} />
