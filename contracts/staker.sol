@@ -65,4 +65,12 @@ contract Staker {
         return stakers;
     }
 
+    function getStakeAmount(address userAddress) 
+    view
+    public 
+    returns (uint) {
+        return balances[userAddress];
+}
+
+
 }
