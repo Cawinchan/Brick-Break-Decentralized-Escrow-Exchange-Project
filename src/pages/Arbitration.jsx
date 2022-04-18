@@ -27,7 +27,7 @@ decide to accept or reject the transaction.</div>
       <p>The following reason has been provided for the rejection.</p>
       <div className="flexbox">Rejection Reason <textarea readOnly className="GreyInputWide" value={RejectionReason} /></div>
       <div className="flexbox">
-        File URL <input className='GreyInputNarrow' style={{marginLeft:"30px"}} />
+        File URL <input className='GreyInputNarrow' style={{marginLeft:"30px"}} value="https://drive.google.com/file/d/1urMDocXEXh0X_39Xn1ysyLJa6TJwRio_/view?usp=sharing" />
       </div>
       <Link to="/Judging"><button className='BlueButton' style={{margin:"15px"}}>Confirm</button></Link>
     </>
