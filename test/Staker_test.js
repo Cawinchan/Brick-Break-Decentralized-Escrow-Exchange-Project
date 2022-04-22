@@ -13,13 +13,11 @@ const increaseWorldTimeInSeconds = async (seconds, mine = false) => {
 };
 
 describe('Staker dApp', () => {
-  let owner;
   let addr1;
   let addr2;
   let addrs;
 
   let stakerContract;
-  let exampleExternalContract;
 
   beforeEach(async () => {
     // Deploy Staker Contract
@@ -85,7 +83,7 @@ describe('Staker dApp', () => {
 
         const stakers = await stakerContract.getStakers().then();
         expect(stakers.length).to.equal(2);
-        console.log(stakers);
+        // console.log(stakers);
 
         // Check that the contract has the correct amount of ETH we just sent
         const contractBalance = await ethers.provider.getBalance(stakerContract.address);
@@ -101,7 +99,7 @@ describe('Staker dApp', () => {
 
         await stakerContract.connect(addr1).withdraw();
         const stakers2 = await stakerContract.getStakers().then();
-        console.log(stakers2);
+        // console.log(stakers2);
         // check if size and staker removed is correct
         expect(stakers2.length).to.equal(1);
         expect(stakers2[0]).to.equal(stakers[1]);

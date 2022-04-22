@@ -24,7 +24,7 @@ class Terms extends React.Component {
   async deployContract() {
     const buyerAddr = "0xdCa6F71e0540df223B0884361143208bc55f7694";  // Add buyer address
     const sellerAddr = "0x3b131Dfd7ACAC990250AfD467AAe714E76989EF3"; // Add seller address 
-    const EthAmt = localStorage.getItem("EthAmt"); // KX need to multiply this by 1*10^18
+    const EthAmt = localStorage.getItem("EthAmt")*10**9; 
     const contractTerms = JSON.parse(localStorage.getItem("terms"));
 
     var from = buyerAddr;
@@ -235,8 +235,8 @@ class Terms extends React.Component {
         arguments: [buyerAddr,sellerAddr,EthAmt,contractTerms]
     }).send({
         from: from,
-        gas: 2000000,
-        gasPrice: '1500000027'
+        gas: 3000000,
+        gasPrice: '2000000027'
     }, function (error, transactionHash) {
 
     }).on('error', function (error) {
@@ -278,8 +278,8 @@ class Terms extends React.Component {
       alert("Ethereum Amount cannot be less than 0!")
     }
     else {
-      localStorage.setItem("terms",JSON.stringify(contractTerms));
-      localStorage.setItem("EthAmt",EthAmt);
+        localStorage.setItem("terms",JSON.stringify(contractTerms));
+        localStorage.setItem("EthAmt",EthAmt);
       console.log("Eth Amount set")
     }
   }
