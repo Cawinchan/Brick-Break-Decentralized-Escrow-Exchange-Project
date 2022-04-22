@@ -8,7 +8,7 @@ chai.use(chaiAsPromised);
 chai.should();
 
 // Following are the States
-// 0: await_confirmation - Waiting for seller to agree to the clauses of the contract
+// 0: await_confirmation - Waiting for seller to agree to thne clauses of the contract
 // 1: await_payment - Waiting for Buyer to send funds to escrow account
 // 2: await_delivery - Buyer has sent funds, waiting for Seller to send item
 // 3: complete - Buyer has received item, funds sent to seller
@@ -189,14 +189,11 @@ describe('EscrowContract', () => {
       const state1 = await escrow.getState().then();
       expect(state1).to.equal(4);
 
-      
 
-
-      // Should transfer funds to new multi-sig-wallet
+      // Future work: should transfer funds to new multi-sig-wallet
       // const updated_escrow_balance = await ethers.provider.getBalance(escrow.address);
 
       // expect(updated_escrow_balance).to.equal(BigNumber.from('0'));
     });
   });
-
 });
