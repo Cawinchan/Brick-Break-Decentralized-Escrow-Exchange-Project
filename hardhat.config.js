@@ -22,7 +22,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.13",
+  solidity: {
+    version:"0.8.13",
+    settings: {
+    optimizer: {
+      enabled: true,
+      runs: 1000,
+    }
+  }
+  },
   paths: {
     artifacts: './src/artifacts'
   },
@@ -35,7 +43,8 @@ module.exports = {
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS = true,
-    currency: "USD",
+    currency: "SGD",
+    coinmarketcap: "458f8778-b401-45ca-8627-0a8eacca46cc"
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,

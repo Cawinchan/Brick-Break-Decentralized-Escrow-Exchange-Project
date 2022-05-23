@@ -6,7 +6,7 @@ pragma solidity 0.8.13;
 contract EscrowContract{
 
     /*
-     *  Events
+     *  Possible Events
      */
     // event Cancel(uint256 time);
     // event Return(uint256 time);
@@ -31,7 +31,6 @@ contract EscrowContract{
     // }
         
 
-  
     // Defining a enumerator 'State'
     enum State{
          
@@ -75,7 +74,7 @@ contract EscrowContract{
     /// Fallback function
     fallback() external payable{
     }
-
+    /// Receive function
     receive() external payable {
     }
 
@@ -149,6 +148,7 @@ contract EscrowContract{
     function launchDispute() instate(
       State.await_delivery) public {
 
+    // Future work
     //    POS get Arbitrators 
     // arbitrator_addresses = POS.call()
 

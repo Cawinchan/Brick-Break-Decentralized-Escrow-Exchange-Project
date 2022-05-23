@@ -318,8 +318,8 @@ class Notice extends React.Component {
         arguments: [buyerAddr,sellerAddr,[Arbitrator1,Arbitrator2,Arbitrator3],required]
     }).send({
         from: buyerAddr,
-        gas: 2000000,
-        gasPrice: '1500000027'
+        gas: 3000000,
+        gasPrice: '2000000027'
     }, function (error, transactionHash) {
 
     }).on('error', function (error) {

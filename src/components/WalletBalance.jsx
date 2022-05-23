@@ -35,7 +35,7 @@ function WalletBalance() {
     return (
       <div>
          
-          <h5 className="font-semibold">Your Balance: {balance} {balance ? "Eth" : ''} </h5>
+          <h5 className="font-semibold">Your Balance: {balance} {balance ? "ETH" : ''} </h5>
           
           <button onClick={() => getBalance(  )} className="cawin-fab">Show My Balance</button>
           
